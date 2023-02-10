@@ -16,12 +16,12 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'index.html')
+            template: path.resolve(__dirname, 'public/index.html')
         }),
         new CopyPlugin({
             patterns: [
                 {
-                    from: path.resolve(__dirname, 'favicon.png'),
+                    from: path.resolve(__dirname, 'public/favicon.png'),
                     to: path.resolve(__dirname, 'dist')
                 },
                 {
