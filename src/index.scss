@@ -1,0 +1,73 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('fonts/Roboto-regular.ttf') format('truetype');
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-image: url('images/summer-bg.jpg');
+  backdrop-filter: blur(10px);
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #ff6600;
+  font-size: 3em;
+}
+
+.buttons-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  max-width: 700px;
+  margin: 0 auto;
+
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+
+    & div {
+      margin-top: 1em;
+
+      input {
+        cursor: pointer;
+      }
+    }
+  }
+
+  button {
+    width: 200px;
+    height: 200px;
+    border: 1px solid white;
+    border-radius: 20px;
+    background-size: cover;
+    cursor: pointer;
+
+    img {
+      width: 48px;
+    }
+
+    &#summer {
+      background-image: url('images/summer-bg.jpg');
+    }
+
+    &#rain {
+      background-image: url('images/rainy-bg.jpg');
+    }
+
+    &#winter {
+      background-image: url('images/winter-bg.jpg');
+    }
+  }
+}
+
