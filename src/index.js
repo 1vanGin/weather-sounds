@@ -1,9 +1,21 @@
 import './index.scss'
 
-const iconMap = {
-    summer: 'sun',
-    rain: 'cloud-rain',
-    winter: 'cloud-snow'
+const weatherMap = {
+    summer: {
+        icon: 'icons/sun.svg',
+        backgroundImage: 'images/summer-bg.jpg',
+        sound: 'sounds/summer.mp3'
+    },
+    rain: {
+        icon: 'icons/cloud-rain.svg',
+        backgroundImage: 'images/rainy-bg.jpg',
+        sound: 'sounds/rain.mp3'
+    },
+    winter: {
+        icon: 'icons/cloud-snow.svg',
+        backgroundImage: 'images/winter-bg.jpg',
+        sound: 'sounds/winter.mp3'
+    }
 }
 const volumeInputAttributes = {
     id: 'volume',
@@ -20,6 +32,8 @@ let playingState = {
     hasAVolumeSlider: false
 };
 let player = new Audio();
+player.loop = true
+
 
 function createVolumeSlider(thisButton) {
     const newDiv = document.createElement("div")
@@ -51,10 +65,11 @@ function playHandler(buttonId, thisButton) {
         ...playingState,
         nowPlaying: true,
         sound: buttonId,
-        url: `sounds/${buttonId}.mp3`
+        url: `${weatherMap[buttonId].sound}`
     }
-    if (player.src === '' || `${window.location.href}${playingState.url}` !== player.src) {
+    if (player.src === '' || `${playingState.url}` !== player.src) {
         player.src = playingState.url;
+        document.body.style.backgroundImage = `url('${weatherMap[buttonId].backgroundImage}')`
     }
 
     player.play();
@@ -93,10 +108,10 @@ function pauseHandler(buttonId) {
 function changeIcon(iconType, thisButton) {
     switch (iconType) {
         case 'pause':
-            thisButton.querySelector("img").src = `${window.location.href}icons/pause.svg`;
+            thisButton.querySelector("img").src = `icons/pause.svg`;
             break;
         default:
-            thisButton.querySelector("img").src = `${window.location.href}icons/${iconMap[iconType]}.svg`;
+            thisButton.querySelector("img").src = `${weatherMap[iconType].icon}`;
             break;
     }
 }

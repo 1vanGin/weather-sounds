@@ -28,11 +28,10 @@ module.exports = {
                     from: path.resolve(__dirname, 'src/icons'),
                     to: path.resolve(__dirname, 'dist/icons')
                 },
-                // Перемещение картинок в папку с использованием MiniCssExtractPlugin ломает url и заменяет / на \
-                // {
-                //     from: path.resolve(__dirname, 'src/images'),
-                //     to: path.resolve(__dirname, 'dist/images')
-                // },
+                {
+                    from: path.resolve(__dirname, 'src/images'),
+                    to: path.resolve(__dirname, 'dist/images')
+                },
                 {
                     from: path.resolve(__dirname, 'src/sounds'),
                     to: path.resolve(__dirname, 'dist/sounds')
@@ -51,28 +50,33 @@ module.exports = {
                 test: /\.s[ac]ss$/i,
                 use: [MiniCssExtractPlugin.loader,  'css-loader', 'sass-loader'], // запускается справа на лево
             },
-            // Перемещение картинок в папку с использованием MiniCssExtractPlugin ломает url и заменяет / на \
-            // {
-            //     test: /\.(png|jpg|jpeg|gif)$/i,
-            //     type: 'asset/resource',
-            //     generator: {
-            //         filename: path.join('images', '[name][ext]'),
-            //     },
-            // },
+            {
+                test: /\.(jpe?g|png|webp|gif)$/i,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'images/[name][ext]',
+                },
+            },
             {
                 test: /\.svg$/,
                 type: 'asset/resource',
                 generator: {
-                    filename: path.join('icons', '[name][ext]'),
+                    filename: 'icons/[name][ext]',
                 },
             },
             {
-                test: /\.(woff2?|eot|ttf|otf)$/i,
+                test: /\.mp3$/i,
                 type: 'asset/resource',
-                // Перемещение шрифта в папку с использованием MiniCssExtractPlugin ломает url и заменяет / на \
-                // generator: {
-                //     filename: path.join('fonts', '[name][ext]'),
-                // },
+                generator: {
+                    filename: 'sounds/[name][ext]',
+                },
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'fonts/[name][ext]',
+                },
             },
             {
                 test: /\.js$/,
