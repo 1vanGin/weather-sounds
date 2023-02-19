@@ -67,7 +67,7 @@ function changeIcon(iconType: string | IdType, thisButton: HTMLElement) {
 }
 
 
-const wrapper: HTMLElement = document.querySelector('.buttons-wrapper');
+const wrapper = document.querySelector('.buttons-wrapper') as HTMLDivElement;
 wrapper.addEventListener('click', (event: MouseEvent) => {
     const target = event.target as HTMLButtonElement
     const buttonTarget: HTMLButtonElement = target.nodeName === 'BUTTON' ? target : target.closest('button')
