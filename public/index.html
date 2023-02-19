@@ -1,33 +1,35 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="favicon.png">
-        <title>Webpack App</title>
-    </head>
-    <body>
-        <h1>Weather sounds</h1>
-        <div id="app">
-            <div id="wrapper" class="buttons-wrapper">
-                <div class="button-container">
-                    <button id="summer">
-                        <img src="icons/sun.svg"/>
-                    </button>
-                </div>
-                <div class="button-container">
-                    <button id="rain">
-                        <img src="icons/cloud-rain.svg"/>
-                    </button>
-                </div>
-                <div class="button-container">
-                    <button id="winter">
-                        <img src="icons/cloud-snow.svg"/>
-                    </button>
-                </div>
-
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.png">
+    <title>Webpack App</title>
+</head>
+<body>
+<h1>Weather sounds</h1>
+<div id="app">
+    <div id="wrapper">
+        <div class="buttons-wrapper">
+            <div class="button-container">
+                <button id="summer">
+                    <img src="icons/sun.svg"/>
+                </button>
+            </div>
+            <div class="button-container">
+                <button id="rain">
+                    <img src="icons/cloud-rain.svg"/>
+                </button>
+            </div>
+            <div class="button-container">
+                <button id="winter">
+                    <img src="icons/cloud-snow.svg"/>
+                </button>
             </div>
         </div>
-    </body>
+        <input type="range" id="volume-controller">
+    </div>
+</div>
+</body>
 </html>
