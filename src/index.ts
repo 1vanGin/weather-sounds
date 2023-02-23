@@ -9,10 +9,10 @@ let playingState: IPlayingState = {
     url: '',
 };
 
-const player = new Audio();
+const player: HTMLAudioElement = new Audio();
 player.loop = true
 
-const playHandler = (buttonId: IdType, thisButton: HTMLButtonElement): void => {
+const playHandler = (buttonId: IdType, thisButton: HTMLElement): void => {
     // Заполняем состояние
     playingState = {
         ...playingState,
@@ -31,8 +31,8 @@ const playHandler = (buttonId: IdType, thisButton: HTMLButtonElement): void => {
 }
 
 const pauseHandler = (buttonId: IdType): void => {
-    const prevButton = document.getElementById(`${playingState.sound}`) as HTMLButtonElement;
-    const thisButton = document.getElementById(`${buttonId}`) as HTMLButtonElement;
+    const prevButton: HTMLElement = document.getElementById(`${playingState.sound}`);
+    const thisButton: HTMLElement = document.getElementById(`${buttonId}`);
 
     //Ставим на паузу
     if (playingState.sound === buttonId) {
@@ -69,8 +69,8 @@ function changeIcon(iconType: string | IdType, thisButton: HTMLElement) {
 
 const wrapper = document.querySelector('.buttons-wrapper') as HTMLDivElement;
 wrapper.addEventListener('click', (event: MouseEvent) => {
-    const target = event.target as HTMLButtonElement
-    const buttonTarget: HTMLButtonElement = target.nodeName === 'BUTTON' ? target : target.closest('button')
+    const target = event.target as HTMLElement | null
+    const buttonTarget: HTMLElement = target.nodeName === 'BUTTON' ? target : target.closest('button')
     const isButton: boolean = buttonTarget.nodeName === 'BUTTON';
     if (!isButton) {
         return;
